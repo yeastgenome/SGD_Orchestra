@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: user "ubuntu" for passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: authorized keys for the ubuntu user
+      authorized_key: user=ubuntu key="{{item}}"
+      with_file:
+        - ~/.ssh/id_rsa.pub

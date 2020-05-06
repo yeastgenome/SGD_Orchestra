@@ -1,0 +1,23 @@
+
+  - hosts: all
+    gather_facts: false
+    become: yes
+    tasks:
+     - name: Ensure docker deamon is running
+       service:
+        name: docker
+        state: started
+     - name: Ensure docker service system started
+       systemd:
+        name: docker
+        state: started
+     - name: Restart docker
+       systemd:
+        name: docker
+        state: reloaded
+     - name: Enable docker
+       systemd:
+        name: docker
+        enabled: yes
+        masked: no
+        

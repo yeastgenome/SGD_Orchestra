@@ -1,0 +1,44 @@
+
+  - hosts: all
+    gather_facts: false
+    become: yes
+    tasks:
+     - name: Remove docker
+       shell: dpkg -P docker-ce
+
+     - name: Remove 'kubernetes' package
+       shell: dpkg -P kubernetes
+     - name: Add Docker GPG apt Key
+       apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+     - name: Add Docker Repository
+       apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+     - name: install docker-ce=18.06.3~ce~3-0~ubuntu
+       apt: update_cache=yes name="docker-ce=18.06.3~ce~3-0~ubuntu"
+
+     - name: Install Docker Module for Python
+       pip:
+        name: docker
+     - name: Ensure docker deamon is running
+       service:
+        name: docker
+        state: started
+     - name: Ensure docker service system started
+       systemd:
+        name: docker
+        state: started
+     - name: Restart docker
+       systemd:
+        name: docker
+        state: reloaded
+     - name: Enable docker
+       systemd:
+        name: docker
+        enabled: yes
+        masked: no
+        

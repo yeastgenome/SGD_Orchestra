@@ -1,0 +1,18 @@
+bootstrap.memory_lock: false
+discovery.seed_hosts: elastic_es-primary1,elastic_es-primary2,elastic_es-primary3
+node.master: false
+node.data: false
+node.ingest: true
+node.name: es-coordination
+cluster.name: "sgd-swarm-cluster"
+search.max_buckets: 300000
+network.host: 0.0.0.0
+xpack.monitoring.elasticsearch.collection.enabled: true
+xpack.monitoring.enabled: true
+xpack.monitoring.collection.enabled: true
+http.cors.enabled: "true"
+http.cors.allow-origin: "*"
+xpack.security.enabled: false
+xpack.security.transport.ssl.enabled: false
+cluster.initial_master_nodes: es-primary1,es-primary2,es-primary3
+

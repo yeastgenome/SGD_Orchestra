@@ -159,21 +159,7 @@ docker node promote my_machine_3 my_machine_2
 #### Elasticsearch File Structure
 
 |-- ./configs
-|   `-- ./configs/elasticsearch
-|       |-- ./configs/elasticsearch/es-config
-|       |   |-- ./configs/elasticsearch/es-config/es-kibana.yml
-|       |   |-- ./configs/elasticsearch/es-config/log4j.properties
-|       |   |-- ./configs/elasticsearch/es-config/es-coordination.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-data2.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-data3.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-data4.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-ingest.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-primary1.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-primary2.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-primary3.yml
-|       |   |-- ./configs/elasticsearch/es-config/es-data1.yml
-|       |`-- ./configs/elasticsearch/es-config/filebeat.yml
-|       `-- ./configs/elasticsearch/elastic-stack.yml
+
 
 #### Deploy & Run elasticsearch service
 
